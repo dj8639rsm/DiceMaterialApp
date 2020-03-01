@@ -16,9 +16,40 @@ namespace DiceMaterialApp
         int y = 100;
         int wid = 1000;
         int depth = 400;
+        double w1 = 0;
+        double d1 = 0;
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private bool checkValue()
+        {
+
+            //テキストボックスの値をint型に変換してフィールドに格納
+            //成功すればtrueを返す
+            try
+            {
+                w1 = Convert.ToInt32(textBox1.Text);
+                d1 = Convert.ToInt32(textBox2.Text);
+                return true;
+            }
+
+            //int型に変換できないときはメッセージを送信
+            //falseを返す
+            catch
+            {
+                MessageBox.Show("Ａ欄とＢ欄に数字を入力してください。", "エラー");
+                return false;
+            }
+
+            //テキストボックスをクリアする。
+            finally
+            {
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox1.Focus();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,6 +89,8 @@ namespace DiceMaterialApp
         {
             var g = pictureBox1.CreateGraphics();
             g.Clear(Color.White);
+
+
         }
     }
 }
