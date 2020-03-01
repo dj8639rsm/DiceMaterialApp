@@ -12,8 +12,8 @@ namespace DiceMaterialApp
 {
     public partial class Form1 : Form
     {
-        int x = 50;
-        int y = 50;
+        int x = 100;
+        int y = 100;
         int wid = 1000;
         int depth = 400;
         public Form1()
@@ -31,9 +31,12 @@ namespace DiceMaterialApp
             //横幅の寸法線
             g.DrawLine(Pens.Blue, x, (y - 20), (wid + x), (y - 20));
             g.DrawLine(Pens.Blue, x, (y - 30), x, (y - 10));
-            g.DrawLine(Pens.Blue, (wid + x), (y - 30), (wid + x), (y - 10));
+            g.DrawLine(Pens.Blue, (x + wid), (y - 30), (x + wid), (y - 10));
 
             //縦線の寸法線
+            g.DrawLine(Pens.Blue, (x - 20), y, (x - 20), (y + depth));
+            g.DrawLine(Pens.Blue, (x - 30), y, (x - 10), y);
+            g.DrawLine(Pens.Blue, (x - 30), (y + depth), (x - 10), (y + depth));
 
 
             //太線の宣言
@@ -49,6 +52,12 @@ namespace DiceMaterialApp
                 DashStyle = System.Drawing.Drawing2D.DashStyle.Dot
             };
             g.DrawRectangle(dot, (x + 3), (y + 3), (wid - 6), (depth - 6));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var g = pictureBox1.CreateGraphics();
+            g.Clear(Color.White);
         }
     }
 }
