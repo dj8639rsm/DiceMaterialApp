@@ -18,6 +18,9 @@ namespace DiceMaterialApp
         int depth = 400;
         double w1 = 0;
         double d1 = 0;
+        double t1 = 0;
+        double w2 = 0;
+        double w3 = 0;
         public Form1()
         {
             InitializeComponent();
@@ -87,8 +90,27 @@ namespace DiceMaterialApp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //picturBox1をクリア
             var g = pictureBox1.CreateGraphics();
             g.Clear(Color.White);
+
+            //textBoxの変数の変換
+            w1 = Convert.ToDouble(textBox1.Text);
+            d1 = Convert.ToDouble(textBox2.Text);
+            t1 = Convert.ToDouble(textBox3.Text);
+            w2 = Convert.ToDouble(textBox4.Text);
+
+            w3 = (w1 - (t1 + t1));
+
+            label4.Text = Convert.ToString(w3);
+            label5.Text = Convert.ToString(d1);
+
+            var bold = new Pen(Color.Black, 2);
+
+           
+
+
+
 
 
         }
